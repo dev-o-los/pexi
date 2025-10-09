@@ -1,19 +1,18 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import type { Movie } from "@/lib/movies";
 import { getMovieImage } from "@/lib/tmdb/helpers";
 import { cn } from "@/lib/utils";
 import { Play } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Hero({ movie }: { movie: Movie }) {
   return (
     <section className="relative min-h-[70vh] w-full overflow-hidden rounded-b-xl">
-      <img
-        // src={movie.backdrop || "/placeholder.svg"}
+      <Image
         src={getMovieImage(movie.poster_path) || "/placeholder.svg"}
         alt={`${movie.id} backdrop`}
+        fill
         className="absolute inset-0 h-full w-full object-cover"
       />
       {/* Gradient + glass overlay */}
@@ -29,20 +28,20 @@ export function Hero({ movie }: { movie: Movie }) {
         <div className="w-full pb-10 md:pb-16">
           <div className="max-w-2xl space-y-4">
             <div className="inline-flex flex-wrap gap-2">
-              {/* {movie.genres.map((g) => (
+              {movie.genre_ids.map((g) => (
                 <span
                   key={g}
                   className="rounded-full bg-secondary/60 px-3 py-1 text-xs text-muted-foreground"
                 >
                   {g}
                 </span>
-              ))} */}
+              ))}
             </div>
             <h1 className="text-pretty text-4xl font-semibold leading-tight md:text-6xl">
               {movie.title}
             </h1>
             <p className="text-pretty text-sm text-muted-foreground md:text-base">
-              {"desc"}
+              {movie.overview}
             </p>
             <div className="flex items-center gap-3 pt-2">
               <Button asChild size="lg" className="gap-2 font-medium">
