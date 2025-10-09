@@ -1,17 +1,13 @@
-import { NavBar } from "@/components/nav-bar"
-import { Player } from "@/components/player"
-import { MOVIES } from "@/lib/movies"
-import { notFound } from "next/navigation"
-import Link from "next/link"
+import { NavBar } from "@/components/nav-bar";
 
 export default function WatchPage({ params }: { params: { id: string } }) {
-  const movie = MOVIES.find((m) => m.id === params.id)
-  if (!movie) return notFound()
+  // const movie = MOVIES.find((m) => m.id === params.id)
+  // if (!movie) return notFound()
 
   return (
     <main>
       <NavBar />
-      <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-10">
+      {/* <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-10">
         <div className="mb-4 text-sm text-muted-foreground">
           <Link href="/">Home</Link> <span className="mx-2">/</span>{" "}
           <Link className="hover:text-primary" href={`/movie/${movie.id}`}>
@@ -25,7 +21,7 @@ export default function WatchPage({ params }: { params: { id: string } }) {
             {movie.year} • {movie.duration} • {movie.genres.join(" • ")}
           </div>
         </div>
-      </div>
+      </div> */}
     </main>
-  )
+  );
 }

@@ -1,23 +1,22 @@
-import { notFound } from "next/navigation"
-import { NavBar } from "@/components/nav-bar"
-import { SiteFooter } from "@/components/footer"
-import { MOVIES } from "@/lib/movies"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { Play, Star } from "lucide-react"
+import { SiteFooter } from "@/components/footer";
+import { NavBar } from "@/components/nav-bar";
 
-export default function MovieDetailsPage({ params }: { params: { id: string } }) {
-  const movie = MOVIES.find((m) => m.id === params.id)
-  if (!movie) return notFound()
+export default function MovieDetailsPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  // const movie = MOVIES[0];
+  // if (!movie) return notFound()
 
-  const related = MOVIES.filter((m) => m.id !== movie.id)
+  // const related = MOVIES.filter((m) => m.id !== movie.id)
 
   return (
     <main>
       <NavBar />
-      <section className="relative h-[50vh] w-full overflow-hidden">
+      {/* <section className="relative h-[50vh] w-full overflow-hidden">
         <img
-          src={movie.backdrop || "/placeholder.svg"}
+          src={movie. || "/placeholder.svg"}
           alt={`${movie.title} backdrop`}
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -70,9 +69,9 @@ export default function MovieDetailsPage({ params }: { params: { id: string } })
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <SiteFooter />
     </main>
-  )
+  );
 }

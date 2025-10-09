@@ -1,31 +1,28 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Input } from "@/components/ui/input"
-import { cn } from "@/lib/utils"
-import { MOVIES } from "@/lib/movies"
-import Link from "next/link"
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 export function SearchBar({ className }: { className?: string }) {
-  const [q, setQ] = React.useState("")
-  const results = React.useMemo(() => {
-    const t = q.trim().toLowerCase()
-    if (!t) return []
-    return MOVIES.filter(
-      (m) => m.title.toLowerCase().includes(t) || m.genres.join(" ").toLowerCase().includes(t),
-    ).slice(0, 6)
-  }, [q])
+  // const [q, setQ] = React.useState("")
+  // const results = React.useMemo(() => {
+  //   const t = q.trim().toLowerCase()
+  //   if (!t) return []
+  //   return MOVIES.filter(
+  //     (m) => m.title.toLowerCase().includes(t) || m.genres.join(" ").toLowerCase().includes(t),
+  //   ).slice(0, 6)
+  // }, [q])
 
   return (
     <div id="search" className={cn("relative", className)}>
       <Input
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
+        // value={q}
+        // onChange={(e) => setQ(e.target.value)}
         placeholder="Search movies and series..."
         aria-label="Search movies"
         className="bg-secondary/60 placeholder:text-muted-foreground"
       />
-      {q && (
+      {/* {q && (
         <div
           role="listbox"
           className="absolute z-30 mt-2 w-full rounded-lg border bg-popover/95 backdrop-blur p-2 shadow-lg"
@@ -52,7 +49,7 @@ export function SearchBar({ className }: { className?: string }) {
             </Link>
           ))}
         </div>
-      )}
+      )} */}
     </div>
-  )
+  );
 }

@@ -24,7 +24,7 @@ export function MovieCard({
         )}
       >
         <img
-          src={movie.poster || "/placeholder.svg"}
+          src={movie.backdrop_path || "/placeholder.svg"}
           alt={`${movie.title} poster`}
           width={width}
           height={height}
@@ -39,11 +39,11 @@ export function MovieCard({
           <div className="p-3 w-full">
             <div className="flex items-center justify-between gap-2">
               <div className="text-xs text-muted-foreground">
-                {movie.genres.join(" • ")}
+                {/* {movie.genres.join(" • ")} */}
               </div>
               <div className="flex items-center text-xs">
                 <Star className="h-3.5 w-3.5 text-accent" />
-                <span className="ml-1">{movie.rating.toFixed(1)}</span>
+                <span className="ml-1">{movie.popularity.toFixed(1)}</span>
               </div>
             </div>
             <div className="mt-1 font-medium leading-tight">{movie.title}</div>
