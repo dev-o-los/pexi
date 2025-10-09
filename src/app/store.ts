@@ -1,3 +1,4 @@
+import { Movie } from "@/lib/movies";
 import { atom } from "jotai";
 
-export const openSignUpDialogAtom = atom(false);
+export const currentMovieAtom = atom<Movie | null>(null);

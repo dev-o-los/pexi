@@ -6,7 +6,7 @@ import { geistSans } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mind Mapping Tool - Organize Ideas Smarter",
+  title: "Pexi",
   description:
     "Create, edit, and visualize mind maps with ease. No data stored on our servers.",
   keywords: ["mind mapping", "visual thinking", "productivity", "AI mind map"],
