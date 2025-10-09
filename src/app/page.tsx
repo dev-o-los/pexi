@@ -8,7 +8,7 @@ export default async function Home() {
   const fetchTrending = await fetch(`${process.env.SITE_URL}/api/movies`);
   const trendingMovies = (await fetchTrending.json()).results as Movie[];
 
-  console.log(trendingMovies);
+  // console.log(trendingMovies);
 
   return (
     <main>

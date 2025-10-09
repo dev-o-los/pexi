@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import type { Movie } from "@/lib/movies";
+import { getMovieImage } from "@/lib/tmdb/helpers";
 import { cn } from "@/lib/utils";
 import { Play } from "lucide-react";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export function Hero({ movie }: { movie: Movie }) {
     <section className="relative min-h-[70vh] w-full overflow-hidden rounded-b-xl">
       <img
         // src={movie.backdrop || "/placeholder.svg"}
-        src={"/placeholder.svg"}
+        src={getMovieImage(movie.poster_path) || "/placeholder.svg"}
         alt={`${movie.id} backdrop`}
         className="absolute inset-0 h-full w-full object-cover"
       />

@@ -1,13 +1,23 @@
-import type React from "react"
-import type { Movie } from "@/lib/movies"
-import { MovieCard } from "./movie-card"
-import { cn } from "@/lib/utils"
+import type { Movie } from "@/lib/movies";
+import { cn } from "@/lib/utils";
+import type React from "react";
+import { MovieCard } from "./movie-card";
 
 export function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-pretty text-xl font-semibold tracking-tight md:text-2xl">{children}</h2>
+  return (
+    <h2 className="text-pretty text-xl font-semibold tracking-tight md:text-2xl">
+      {children}
+    </h2>
+  );
 }
 
-export function MovieRow({ title, movies }: { title: string; movies: Movie[] }) {
+export function MovieRow({
+  title,
+  movies,
+}: {
+  title: string;
+  movies: Movie[];
+}) {
   return (
     <section className="space-y-3">
       <SectionTitle>{title}</SectionTitle>
@@ -24,18 +34,24 @@ export function MovieRow({ title, movies }: { title: string; movies: Movie[] }) 
         <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-background" />
       </div>
     </section>
-  )
+  );
 }
 
-export function MovieGrid({ title, movies }: { title: string; movies: Movie[] }) {
+export function MovieGrid({
+  title,
+  movies,
+}: {
+  title: string;
+  movies: Movie[];
+}) {
   return (
     <section className="space-y-3">
       <SectionTitle>{title}</SectionTitle>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {movies.map((m) => (
-          <MovieCard key={m.id} movie={m} size="sm" />
+          <MovieCard key={m.id} movie={m} />
         ))}
       </div>
     </section>
-  )
+  );
 }

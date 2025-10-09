@@ -2,37 +2,26 @@
 
 import { Card } from "@/components/ui/card";
 import type { Movie } from "@/lib/movies";
+import { getMovieImage } from "@/lib/tmdb/helpers";
 import { cn } from "@/lib/utils";
 import { Play, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-export function MovieCard({
-  movie,
-  size = "md",
-}: {
-  movie: Movie;
-  size?: "sm" | "md";
-}) {
-  const width = size === "sm" ? 160 : 200;
-  const height = size === "sm" ? 240 : 300;
-
+export function MovieCard({ movie }: { movie: Movie }) {
   return (
     <Link href={`/movie/${movie.id}`} className="group block">
       <Card
         className={cn(
-          "relative overflow-hidden border-0 bg-secondary/30 shadow-none"
+          "relative overflow-hidden border-0 bg-secondary/30 shadow-none w-[250px]"
         )}
       >
-        <img
-          src={movie.backdrop_path || "/placeholder.svg"}
+        <Image
+          src={getMovieImage(movie.poster_path) || "/placeholder.svg"}
           alt={`${movie.title} poster`}
-          width={width}
-          height={height}
-          className="h-[var(--h)] w-[var(--w)] object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-          style={{
-            ["--w" as any]: `${width}px`,
-            ["--h" as any]: `${height}px`,
-          }}
+          width={250}
+          height={400}
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
         {/* Hover overlay */}
         <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
