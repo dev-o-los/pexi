@@ -6,14 +6,15 @@ import { Movie } from "@/lib/movies";
 
 export default async function Home() {
   const fetchTrending = await fetch(`${process.env.SITE_URL}/api/movies`);
-  const trendingMovies = (await fetchTrending.json()).results as Movie[];
+  const trendingMovies =
+    ((await fetchTrending.json())?.results as Movie[]) ?? [];
 
   // console.log(trendingMovies);
 
   return (
     <main>
       <NavBar />
-      <Hero movie={trendingMovies[1]} />
+      <Hero movie={trendingMovies[0]} />
 
       <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-12 space-y-10">
         <MovieRow title="Trending Now" movies={trendingMovies} />
